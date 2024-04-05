@@ -1,0 +1,108 @@
+import random
+
+logo = ''' 
+ _                                             
+| |                                            
+| |__   __ _ _ __   __ _ _ __ ___   __ _ _ __  
+| '_ \\ / _` | '_ \\ / _` | '_ ` _ \\ / _` | '_ \\ 
+| | | | (_| | | | | (_| | | | | | | (_| | | | |
+|_| |_|\\__,_|_| |_|\\__, |_| |_| |_|\\__,_|_| |_|
+                    __/ |                      
+                   |___/    '''
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+ / \\  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
+word_list = ["ITZY", "NEWJEANS", "AESPA", "NMIXX", "IZONE", "LESSERAFIM", "IVE"]
+word = random.choice(word_list)
+n = len(word)
+
+answer = ["_" for _ in range(n)]
+life = 6
+print(logo)
+end_of_game = False
+
+while not end_of_game:
+    if life == 0:
+        print("Game Over")
+        break
+
+    guess = input("Guess a letter: ").upper()
+
+    if guess in answer:
+        print(f"You've already guessed {guess}")
+        continue
+
+    for i in range(n):
+        letter = word[i]
+        if letter == guess:
+            answer[i] = letter
+
+    if guess not in word:
+        print(f"You guessed {guess}, that's not in the word. You lose a life.")
+        life -= 1
+
+    print(f"{' '.join(answer)}")
+
+    print(stages[life])
+
+    if life == 0:
+        end_of_game = True
+        print("You lose.")
+
+    if "_" not in answer:
+        end_of_game = True
+        print("You win.")
