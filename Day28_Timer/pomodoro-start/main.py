@@ -10,34 +10,41 @@ SHORT_BREAK_MIN = 5
 LONG_BREAK_MIN = 20
 reps = 0
 timer = None
+is_on = False
 
 # ---------------------------- TIMER RESET ------------------------------- # 
 def reset_timer():
-    global reps
+    global reps, is_on
 
     window.after_cancel(timer)
     label1.config(text="Timer")
     canvas.itemconfig(timer_text, text="00:00")
     label2.config(text="")
     reps = 0
+    is_on = False
 
 # ---------------------------- TIMER MECHANISM ------------------------------- # 
 def start_timer():
-    global reps
-    reps += 1
+    global reps, is_on
 
-    if reps == 8:
-        long_break_sec = LONG_BREAK_MIN
-        count_down(long_break_sec)
-        label1.config(text="Break", fg=RED)
-    elif reps % 2 == 0:
-        short_break_sec = SHORT_BREAK_MIN
-        count_down(short_break_sec)
-        label1.config(text="Break", fg=PINK)
+    if is_on:
+        return
     else:
-        work_sec = WORK_MIN
-        count_down(work_sec)
-        label1.config(text="Work", fg=GREEN)
+        is_on = True
+        reps += 1
+
+        if reps == 8:
+            long_break_sec = LONG_BREAK_MIN
+            count_down(long_break_sec)
+            label1.config(text="Break", fg=RED)
+        elif reps % 2 == 0:
+            short_break_sec = SHORT_BREAK_MIN
+            count_down(short_break_sec)
+            label1.config(text="Break", fg=PINK)
+        else:
+            work_sec = WORK_MIN
+            count_down(work_sec)
+            label1.config(text="Work", fg=GREEN)
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- # 
 def count_down(count):
