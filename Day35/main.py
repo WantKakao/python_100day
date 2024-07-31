@@ -35,7 +35,7 @@ else:
     client = Client(account_sid, auth_token)
     message = client.messages.create(
         body="It won't be rain today! Feel free to go outside!",
-        from_='+18102733297',
-        to='+821029923445'
+        from_=os.getenv("from_"),
+        to=os.getenv("to")
     )
     print(message.status)
