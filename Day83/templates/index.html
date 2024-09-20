@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <header>
+        <h2>SUMIN SONG</h2>
+        <h1>PORTFOLIO</h1>
+        <nav>
+            <a href="#about">ABOUT</a>
+            <a href="#projects">EXP & CERTI</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h1>ABOUT</h1>
+            <div class="about-content">
+                <div class="text-content">
+                    <h2>| 송수민 / 27세</h2>
+                    <p>저는 python 개발자 입니다.</p>
+                    <p>컴퓨터의 구조와 작동 원리에 대해 궁금해하고</p>
+                    <p>알고리즘 해결 능력을 기르는 것을 즐기며</p>
+                    <p>AI 머신러닝과 딥러닝을 공부하고 있습니다.</p>
+                    <h2>| SKILLS</h2>
+                    <p class="skills">python HTML CSS</p>
+                    <p class="skills">js mongoDB Bootstrap</p>
+                </div>
+                <img src="/static/princess.jpg" alt="Profile Image">
+            </div>
+        </section>
+
+
+
+        <section id="projects">
+            <div class="projects-content">
+                <div>
+                    <h2>| EXP & CERTI</h2>
+                    <p>UNIST mechanical engineering</p>
+                    <p>KRAFTON JUNGLE 3rd</p>
+                    <p>OPIc IH</p>
+                    <p>PCCP level 3</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="projects-content">
+                <div>
+                    <h2>| CONTACT</h2>
+                    <p>Git Hub: <a href="https://github.com/WantKakao">https://github.com/WantKakao</a></p>
+                    <p>TISTORY: <a href="https://minsoo5.tistory.com/">https://minsoo5.tistory.com/</a></p>
+                    <p>Email: hou38304@gmail.com</p>
+                    <p>Phone: +82 010-0000-0000</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 sumin portfolio</p>
+    </footer>
+</body>
+</html>
